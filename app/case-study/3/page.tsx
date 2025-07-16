@@ -576,14 +576,14 @@ export default function AcademicProjectsCaseStudy() {
               Ready to Build Your Next Project?
             </h2>
             <p className="text-lg text-primary-700 mb-8 max-w-2xl mx-auto">
-              Let's leverage my diverse technical expertise to create innovative solutions for your business needs.
+              Let&apos;s leverage my diverse technical expertise to create innovative solutions for your business needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/#contact" 
                 className="inline-flex items-center px-8 py-4 bg-primary-900 text-white font-semibold rounded-full hover:bg-primary-800 transition-colors"
               >
-                Let's Connect
+                Let&apos;s Connect
                 <FaExternalLinkAlt className="w-4 h-4 ml-2" />
               </Link>
               <Link 

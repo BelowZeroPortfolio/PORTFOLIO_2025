@@ -267,7 +267,7 @@ export default function Skills() {
             </div>
             
             <h3 className="text-2xl md:text-3xl font-bold text-primary-900 mb-4">
-              This Portfolio's Technology Stack
+              This Portfolio&apos;s Technology Stack
             </h3>
             <p className="text-primary-600 max-w-2xl mx-auto">
               Showcasing the latest web development technologies and best practices used to create this portfolio.
