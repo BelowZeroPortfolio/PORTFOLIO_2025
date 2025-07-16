@@ -50,7 +50,7 @@ export default function Navigation() {
               href="#work" 
               className="text-sm font-medium text-primary-600 hover:text-primary-900 transition-colors"
             >
-              Work
+              Projects
             </Link>
             <Link 
               href="#about" 
