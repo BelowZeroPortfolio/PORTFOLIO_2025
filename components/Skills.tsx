@@ -27,7 +27,7 @@ const skillTiers = {
     {
       name: "C# & ASP.NET Framework",
       description: "Enterprise applications and web services development",
-      icon: <Image src="/c%23.png" alt="C#" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />,
+      icon: <Image src="/csharp.png" alt="C#" width={32} height={32} className="w-6 h-6 md:w-8 md:h-8" />,
       iconBg: "bg-white"
     },
     {
