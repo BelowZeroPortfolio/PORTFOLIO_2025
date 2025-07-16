@@ -36,7 +36,7 @@ export default function PowerPlatformCaseStudy() {
             </h1>
             
             <p className="text-xl text-blue-200 leading-relaxed mb-8">
-              Comprehensive training and development in Microsoft's low-code platform, mastering Power Apps, 
+              Comprehensive training and development in Microsoft&apos;s low-code platform, mastering Power Apps, 
               Power Automate, and Power Pages to create efficient business solutions and workflows.
             </p>
             
@@ -65,12 +65,12 @@ export default function PowerPlatformCaseStudy() {
               <div>
                 <p className="text-lg text-primary-700 leading-relaxed mb-6">
                   During the Software Development Training Program (SDTP) 2024-2025, I immersed myself in 
-                  Microsoft's Power Platform ecosystem, developing expertise in low-code development and 
+                  Microsoft&apos;s Power Platform ecosystem, developing expertise in low-code development and 
                   business process automation.
                 </p>
                 <p className="text-lg text-primary-700 leading-relaxed">
                   The training focused on creating practical business applications that streamline operations, 
-                  automate workflows, and enhance productivity through Microsoft's integrated platform solutions.
+                  automate workflows, and enhance productivity through Microsoft&apos;s integrated platform solutions.
                 </p>
               </div>
               <div className="relative">
@@ -125,7 +125,7 @@ export default function PowerPlatformCaseStudy() {
                 </div>
                 <h3 className="text-xl font-bold text-blue-800 mb-4 text-center">Power Apps</h3>
                 <p className="text-blue-700 leading-relaxed mb-4">
-                  Developed custom business applications using Power Apps' intuitive drag-and-drop interface, 
+                  Developed custom business applications using Power Apps intuitive drag-and-drop interface, 
                   creating responsive apps that work across web and mobile platforms.
                 </p>
                 <ul className="space-y-2 text-blue-700 text-sm">
@@ -248,7 +248,7 @@ export default function PowerPlatformCaseStudy() {
                 </p>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                   <p className="text-green-800 text-sm">
-                    <strong>Solution:</strong> Used Power Automate's visual designer with conditional branches, 
+                    <strong>Solution:</strong> Used Power Automate&apos;s visual designer with conditional branches, 
                     parallel processing, and error handling to create robust, scalable workflows.
                   </p>
                 </div>
@@ -274,7 +274,7 @@ export default function PowerPlatformCaseStudy() {
                 </p>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                   <p className="text-green-800 text-sm">
-                    <strong>Solution:</strong> Leveraged Power Apps' responsive design features, implemented 
+                    <strong>Solution:</strong> Leveraged Power Apps responsive design features, implemented 
                     custom themes, and used mobile-first design principles for optimal user experience.
                   </p>
                 </div>
@@ -331,14 +331,14 @@ export default function PowerPlatformCaseStudy() {
               Ready to Automate Your Business?
             </h2>
             <p className="text-lg text-primary-700 mb-8 max-w-2xl mx-auto">
-              Let's leverage Microsoft Power Platform to streamline your operations and boost productivity.
+              Let&apos;s leverage Microsoft Power Platform to streamline your operations and boost productivity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/#contact" 
                 className="inline-flex items-center px-8 py-4 bg-primary-900 text-white font-semibold rounded-full hover:bg-primary-800 transition-colors"
               >
-                Let's Connect
+                Let&apos;s Connect
                 <FaExternalLinkAlt className="w-4 h-4 ml-2" />
               </Link>
               <Link 

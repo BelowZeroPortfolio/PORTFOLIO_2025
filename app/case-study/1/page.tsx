@@ -326,14 +326,14 @@ export default function HackathonCaseStudy() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-lg text-primary-700 mb-8 max-w-2xl mx-auto">
-              Let's collaborate on your next project and create innovative solutions that make a real impact.
+              Let&apos;s collaborate on your next project and create innovative solutions that make a real impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/#contact" 
                 className="inline-flex items-center px-8 py-4 bg-primary-900 text-white font-semibold rounded-full hover:bg-primary-800 transition-colors"
               >
-                Let's Connect
+                Let&apos;s Connect
                 <FaExternalLinkAlt className="w-4 h-4 ml-2" />
               </Link>
               <Link 
