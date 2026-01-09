@@ -58,7 +58,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-primary-300 text-sm">Location</div>
-                  <div className="text-white font-medium">Pulupandan, Negros Occidental</div>
+                  <div className="text-white font-medium">Brgy. Zone 1-A, Pulupandan, Neg. Occ.</div>
                 </div>
               </div>
             </div>

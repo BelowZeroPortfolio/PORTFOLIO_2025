@@ -16,7 +16,7 @@ export default function About() {
             Who I Am
           </h2>
           <p className="text-lg md:text-xl text-primary-600 leading-relaxed max-w-3xl mx-auto">
-            Blending logic and artistry to craft digital experiences that inspire and connect.
+            Building efficient, practical solutions that drive real-world results.
           </p>
         </div>
 
@@ -47,21 +47,32 @@ export default function About() {
           {/* Right Column - About Content */}
           <div className="space-y-8 md:space-y-12 flex flex-col justify-center">
             <div>
-              <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-primary-800 mb-4">Visual Storyteller. Code Poet. Innovator.</h3>
+              <h3 className="font-bold text-xl md:text-2xl lg:text-3xl text-primary-800 mb-4">Web Developer. Problem Solver. Innovator.</h3>
               <div className="prose prose-base md:prose-lg text-primary-600 leading-relaxed space-y-4 md:space-y-6 max-w-none">
                 <p>
-                  With a camera in one hand and a keyboard in the other, I see the world as a canvas for both code and creativity.<br/>
-                  Currently pursuing my Bachelor of Science in Information Systems at Bago City College, I’ve transformed my passion for technology into a journey of visual storytelling—whether through lines of code or the lens of a camera.
+                  Web Developer skilled in building user-friendly applications, with hands-on experience in software development, web technologies, and systems analysis. Passionate about creating efficient, practical solutions and collaborating on projects that drive real-world results.
                 </p>
                 <p>
-                  I thrive on crafting digital experiences that are as elegant as they are functional. My toolkit spans from classic languages like <span className="font-semibold">PHP</span> and <span className="font-semibold">C#</span> to the cutting edge of <span className="font-semibold">Microsoft Power Platform</span>, empowering me to build solutions that are efficient, scalable, and visually compelling.
+                  A fresh graduate with a Bachelor of Science in Information Systems from Bago City College (2021-2025), with relevant coursework in Systems Analysis, Database Management, and Information Systems Management. My toolkit spans from <span className="font-semibold">PHP</span>, <span className="font-semibold">C#</span>, and <span className="font-semibold">JavaScript</span> to the cutting edge of <span className="font-semibold">Microsoft Power Platform</span> and <span className="font-semibold">AL programming</span> in Business Central.
                 </p>
                 <p>
-                  Rooted in Pulupandan, Negros Occidental, I’m always exploring new ways to blend logic with artistry. When I’m not coding, you’ll find me collaborating with creative minds, capturing moments, and staying ahead of the latest tech trends.
+                  Currently working as a Web Developer at Lexite PH, building AI and IoT-integrated solutions including a Pest Detection Web App and QR Attendance System. Previously developed business automation solutions at NinjaTribe Axilara using Microsoft Business Central and Power Platform tools.
                 </p>
                 <p>
-                  <span className="italic">Let’s create something unforgettable—where every pixel and every line of code tells a story.</span>
+                  <span className="italic">Let&apos;s build something great together—efficient, scalable, and impactful.</span>
                 </p>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-primary-50 p-4 rounded-xl">
+                <div className="text-sm text-primary-500 mb-1">Languages</div>
+                <div className="font-semibold text-primary-800">English, Tagalog</div>
+              </div>
+              <div className="bg-primary-50 p-4 rounded-xl">
+                <div className="text-sm text-primary-500 mb-1">Location</div>
+                <div className="font-semibold text-primary-800">Pulupandan, Neg. Occ.</div>
               </div>
             </div>
            

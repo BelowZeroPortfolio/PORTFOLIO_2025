@@ -15,14 +15,22 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Carl Navid Cata-an - Programmer',
-  description: 'Dedicated Programmer specializing in PHP, C#, JavaScript, and Microsoft Power Platform. Building efficient, scalable solutions and automation.',
-  keywords: 'Programmer, PHP Developer, C# Developer, JavaScript, Microsoft Power Platform, Power Apps, Power Automate, Full Stack Developer',
+  metadataBase: new URL('https://carlnavid.vercel.app'),
+  title: 'Carl Navid Cata-an - Web Developer',
+  description: 'Web Developer skilled in PHP, Laravel, JavaScript, AL Programming, and Microsoft Power Platform. Building AI-powered solutions, business automations, and web experiences.',
+  keywords: 'Web Developer, PHP Developer, Laravel, JavaScript, AL Programming, Microsoft Business Central, Power Platform, Power Apps, Power Automate, Full Stack Developer, AI Integration, IoT',
   authors: [{ name: 'Carl Navid Cata-an' }],
   openGraph: {
-    title: 'Carl Navid Cata-an - Programmer',
-    description: 'Dedicated Programmer building efficient, scalable solutions with modern technologies',
+    title: 'Carl Navid Cata-an - Web Developer',
+    description: 'Web Developer building efficient, scalable solutions with modern technologies. Specializing in AI-powered solutions, business automations, and web experiences.',
     type: 'website',
+    url: 'https://carlnavid.vercel.app',
+    siteName: 'Carl Navid Cata-an Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carl Navid Cata-an - Web Developer',
+    description: 'Web Developer building efficient, scalable solutions with modern technologies.',
   },
 }
 

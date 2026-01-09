@@ -64,13 +64,14 @@ export default function Navigation() {
             >
               Contact
             </Link>
-            <Link 
+            <a 
               href="/Cata-an_Carl_Navid_Resume.pdf" 
               target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-medium text-primary-600 hover:text-primary-900 transition-colors"
             >
               Resume
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,14 +115,15 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-              <Link 
+              <a 
                 href="/Cata-an_Carl_Navid_Resume.pdf" 
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={closeMobileMenu}
                 className="block px-4 py-3 text-base font-medium text-primary-600 hover:text-primary-900 hover:bg-primary-50 transition-colors"
               >
                 Resume
-              </Link>
+              </a>
             </div>
           </div>
         )}

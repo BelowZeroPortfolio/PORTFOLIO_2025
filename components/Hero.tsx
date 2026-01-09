@@ -32,16 +32,17 @@ export default function Hero() {
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-1" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15l-5-5-5 5" /></svg>
               Let&apos;s Talk
             </Link>
-            <Link 
+            <a 
               href="/Cata-an_Carl_Navid_Resume.pdf" 
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 text-sm font-medium text-primary-700 bg-primary-100 border border-primary-200 rounded-lg hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 gap-2 group"
             >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Download Resume
-            </Link>
+            </a>
           </div>
 
           {/* Achievements Grid */}
@@ -50,22 +51,22 @@ export default function Hero() {
               <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 🎓
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">2025</div>
-              <div className="text-sm text-primary-600 font-medium">Fresh Graduate</div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">BSIS</div>
+              <div className="text-sm text-primary-600 font-medium">2025 Graduate</div>
             </div>
             <div className="group text-center p-4 rounded-xl hover:bg-primary-50 transition-all duration-300">
               <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 🏆
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">2nd</div>
-              <div className="text-sm text-primary-600 font-medium">Place Hackathon</div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">2025</div>
+              <div className="text-sm text-primary-600 font-medium">Programmer of the Year</div>
             </div>
             <div className="group text-center p-4 rounded-xl hover:bg-primary-50 transition-all duration-300">
               <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                🥇
+                📋
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">2025</div>
-              <div className="text-sm text-primary-600 font-medium">Programmer Award</div>
+              <div className="text-2xl lg:text-3xl font-bold text-primary-900 mb-1">CSE</div>
+              <div className="text-sm text-primary-600 font-medium">Professional Passer</div>
             </div>
             <div className="group text-center p-4 rounded-xl hover:bg-primary-50 transition-all duration-300">
               <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
