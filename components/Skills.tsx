@@ -13,6 +13,7 @@ import {
   SiDocker,
   SiLaravel,
   SiHtml5,
+  SiExpo,
 } from 'react-icons/si';
 import { HiCode } from 'react-icons/hi';
 
@@ -41,8 +42,11 @@ const learningSkills = [
   { name: 'Vue.js', icon: <SiVuedotjs className="w-10 h-10 md:w-12 md:h-12 text-[#4FC08D]" /> },
   { name: 'Inertia.js', icon: <Image src="/inertia.svg" alt="Inertia.js" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12" /> },
   { name: 'React', icon: <SiReact className="w-10 h-10 md:w-12 md:h-12 text-[#61DAFB]" /> },
+  { name: 'React Native', icon: <SiReact className="w-10 h-10 md:w-12 md:h-12 text-[#61DAFB]" /> },
+  { name: 'Expo', icon: <SiExpo className="w-10 h-10 md:w-12 md:h-12 text-[#000020]" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="w-10 h-10 md:w-12 md:h-12 text-black" /> },
   { name: 'TypeScript', icon: <SiTypescript className="w-10 h-10 md:w-12 md:h-12 text-[#3178C6]" /> },
+  { name: 'Supabase', icon: <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-[#3ECF8E]"><span className="text-white font-bold text-sm md:text-base">S</span></div> },
   { name: 'Docker', icon: <SiDocker className="w-10 h-10 md:w-12 md:h-12 text-[#2496ED]" /> },
   { name: 'Redis', icon: <Image src="/redis.png" alt="Redis" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12" /> },
   { name: 'Power Apps', icon: <Image src="/power-apps.png" alt="Power Apps" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12" /> },

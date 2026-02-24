@@ -1,34 +1,55 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { HiAcademicCap, HiBriefcase, HiLocationMarker } from 'react-icons/hi';
+import { HiAcademicCap, HiBriefcase } from 'react-icons/hi';
 import { GiTrophy, GiDiploma } from 'react-icons/gi';
 import { FaRocket, FaFlag, FaStar } from 'react-icons/fa';
 
-// Scroll animation hook
-function useScrollReveal(threshold = 0.2) {
+// Parallax scroll animation hook - fades in on scroll down, stays visible, fades out on scroll up
+function useParallaxReveal(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold, rootMargin: '0px 0px -50px 0px' }
-    );
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY.current;
+      lastScrollY.current = currentScrollY;
 
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [threshold]);
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top;
+      const elementBottom = rect.bottom;
+      const windowHeight = window.innerHeight;
+
+      // Element is in viewport
+      const inViewport = elementTop < windowHeight * (1 - threshold) && elementBottom > 0;
+
+      if (inViewport && scrollingDown) {
+        setIsVisible(true);
+        setHasBeenVisible(true);
+      } else if (!inViewport && !scrollingDown && elementTop > windowHeight * 0.5) {
+        // Only fade out when scrolling up and element is above viewport
+        setIsVisible(false);
+      } else if (hasBeenVisible && inViewport) {
+        // Keep visible if we've seen it and it's still in viewport
+        setIsVisible(true);
+      }
+    };
+
+    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [threshold, hasBeenVisible]);
 
   return { ref, isVisible };
 }
 
-// Animated wrapper component
+// Animated wrapper component with parallax effect
 const ScrollReveal = ({ 
   children, 
   delay = 0,
@@ -38,7 +59,7 @@ const ScrollReveal = ({
   delay?: number;
   direction?: 'up' | 'left' | 'right';
 }) => {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible } = useParallaxReveal();
   
   const getTransform = () => {
     if (!isVisible) {
@@ -57,7 +78,7 @@ const ScrollReveal = ({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: `opacity 0.7s ease-out ${delay}ms, transform 0.7s ease-out ${delay}ms`,
+        transition: `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms`,
       }}
     >
       {children}
@@ -112,7 +133,7 @@ const journeySteps = [
     company: "NOLITC",
     location: "Philippines",
     period: "2024 - 2025",
-    description: "4-month competency-based software development training. Built ticket support system reducing response time by 40%.",
+    description: "6-month competency-based software development training. Built ticket support system reducing response time by 40%.",
     icon: <HiAcademicCap className="w-5 h-5" />,
     color: "from-emerald-500 to-green-600",
     bgColor: "bg-emerald-500",
@@ -175,7 +196,7 @@ export default function Experience() {
 
         {/* Adventure Timeline */}
         <div className="relative max-w-4xl mx-auto mb-20">
-          {/* Adventure Path - Natural winding road */}
+          {/* Squiggly Path - Desktop */}
           <svg 
             className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-full max-w-lg hidden md:block pointer-events-none" 
             viewBox="0 0 300 1000" 
@@ -193,45 +214,35 @@ export default function Experience() {
                  C60 680 120 720 150 760
                  C180 800 250 840 230 900
                  C210 960 150 980 150 1000"
-              stroke="url(#adventureGradient)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-              opacity="0.6"
-            />
-            <path 
-              d="M150 0
-                 C150 20 220 40 230 80
-                 C240 120 180 140 150 160
-                 C100 190 60 200 70 250
-                 C80 300 140 320 150 360
-                 C160 400 240 420 230 480
-                 C220 540 100 560 80 620
-                 C60 680 120 720 150 760
-                 C180 800 250 840 230 900
-                 C210 960 150 980 150 1000"
-              stroke="url(#adventureGradient)"
+              stroke="#E5E7EB"
               strokeWidth="3"
               strokeLinecap="round"
-              strokeDasharray="20 10"
-              className="animate-dash"
               fill="none"
             />
-            <defs>
-              <linearGradient id="adventureGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#3B82F6" />
-                <stop offset="20%" stopColor="#8B5CF6" />
-                <stop offset="40%" stopColor="#F59E0B" />
-                <stop offset="60%" stopColor="#F59E0B" />
-                <stop offset="80%" stopColor="#10B981" />
-                <stop offset="100%" stopColor="#F43F5E" />
-              </linearGradient>
-            </defs>
           </svg>
 
-          {/* Mobile Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 via-amber-500 via-emerald-500 to-rose-500 md:hidden"></div>
+          {/* Squiggly Path - Mobile */}
+          <svg 
+            className="absolute left-0 top-0 h-full w-32 md:hidden pointer-events-none" 
+            viewBox="0 0 100 1000" 
+            preserveAspectRatio="none"
+            fill="none"
+          >
+            <path 
+              d="M32 0
+                 C32 30 45 60 50 100
+                 C55 140 40 180 32 220
+                 C20 270 15 320 25 370
+                 C35 420 45 470 32 520
+                 C20 570 15 620 25 670
+                 C35 720 45 770 32 820
+                 C20 870 25 920 32 1000"
+              stroke="#E5E7EB"
+              strokeWidth="3"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
 
           {/* Timeline Items */}
           <div className="space-y-12 md:space-y-16">
@@ -246,67 +257,77 @@ export default function Experience() {
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  {/* Year Badge - Mobile */}
-                  <div className={`absolute -left-1 md:hidden w-[72px] h-8 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white text-xs font-bold shadow-lg`}>
-                    {step.year}
+                  {/* Dot connector - Mobile */}
+                  <div 
+                    className="absolute md:hidden top-6"
+                    style={{
+                      left: index === 0 ? '32px' : 
+                            index === 1 ? '50px' : 
+                            index === 2 ? '32px' : 
+                            index === 3 ? '25px' : '32px',
+                      transform: 'translate(-50%, 0)'
+                    }}
+                  >
+                    <div className={`w-3 h-3 rounded-full ${step.isCurrent ? 'bg-primary-900' : 'bg-white'} border-2 ${step.isCurrent ? 'border-primary-900' : 'border-primary-400'} shadow-md`}></div>
                   </div>
 
                   {/* Content Card */}
-                  <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
-                    <div className={`group relative bg-white p-6 rounded-2xl border-2 ${step.isCurrent ? 'border-blue-300 shadow-lg shadow-blue-100' : 'border-primary-100'} hover:shadow-xl hover:border-primary-300 transition-all duration-300`}>
-                      {/* Current Badge */}
+                  <div className={`flex-1 ml-20 md:ml-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
+                    <div className={`group relative bg-white rounded-xl border ${
+                      step.isCurrent 
+                        ? 'border-primary-900 shadow-lg' 
+                        : 'border-primary-200'
+                    } hover:shadow-xl hover:border-primary-300 transition-all duration-300 overflow-hidden`}>
+                      
+                      {/* Current indicator */}
                       {step.isCurrent && (
-                        <div className="absolute -top-3 left-6 px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold rounded-full flex items-center gap-1">
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                          </span>
-                          Currently Here
-                        </div>
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-primary-900"></div>
                       )}
-
-                      {/* Award Badge */}
+                      
+                      {/* Award indicator */}
                       {step.isAward && (
-                        <div className="absolute -top-3 left-6 px-3 py-1 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold rounded-full">
-                          🏆 Achievement Unlocked!
-                        </div>
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
                       )}
 
-                      <div className="flex items-start gap-4">
-                        <div className={`p-3 rounded-xl bg-gradient-to-br ${step.color} text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                          {step.icon}
+                      <div className="p-6">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className={`p-2.5 rounded-lg ${step.isCurrent ? 'bg-primary-900' : 'bg-primary-100'} ${step.isCurrent ? 'text-white' : 'text-primary-700'}`}>
+                            {step.icon}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className="text-lg font-semibold text-primary-900">{step.title}</h3>
+                              {step.isCurrent && (
+                                <span className="px-2 py-0.5 bg-primary-900 text-white text-xs font-medium rounded">Now</span>
+                              )}
+                              {step.isAward && (
+                                <span className="text-lg">🏆</span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-primary-600">
+                              <span>{step.company}</span>
+                              <span>•</span>
+                              <span>{step.year}</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg md:text-xl font-bold text-primary-900 mb-1">{step.title}</h3>
-                          <div className="flex items-center gap-2 text-sm text-primary-500 mb-3">
-                            <span className="font-medium">{step.company}</span>
-                            <span>•</span>
-                            <span className="flex items-center gap-1">
-                              <HiLocationMarker className="w-3 h-3" />
-                              {step.location}
+                        
+                        <p className="text-sm text-primary-600 leading-relaxed mb-4">{step.description}</p>
+                        
+                        <div className="flex flex-wrap gap-2">
+                          {step.highlights.map((h, i) => (
+                            <span key={i} className="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded">
+                              {h}
                             </span>
-                          </div>
-                          <p className="text-primary-600 text-sm mb-4">{step.description}</p>
-                          <div className="flex flex-wrap gap-2">
-                            {step.highlights.map((h, i) => (
-                              <span key={i} className="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded-full">
-                                {h}
-                              </span>
-                            ))}
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Center Node - Desktop */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg border-4 border-white`}>
-                      {step.icon}
-                    </div>
-                    <div className={`mt-2 px-3 py-1 rounded-full bg-gradient-to-r ${step.color} text-white text-xs font-bold shadow-md`}>
-                      {step.year}
-                    </div>
+                  {/* Dot connector - Desktop */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6">
+                    <div className={`w-3 h-3 rounded-full ${step.isCurrent ? 'bg-primary-900' : 'bg-white'} border-2 ${step.isCurrent ? 'border-primary-900' : 'border-primary-400'} shadow-md`}></div>
                   </div>
 
                   {/* Spacer for alternating layout */}
@@ -328,43 +349,23 @@ export default function Experience() {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             {certifications.map((cert, index) => (
               <ScrollReveal key={index} delay={index * 150} direction={index === 0 ? 'left' : 'right'}>
-                <div 
-                  className="group relative bg-white rounded-3xl p-8 border-2 border-primary-100 hover:border-transparent hover:shadow-2xl transition-all duration-500 overflow-hidden"
-                >
-                  {/* Gradient Border on Hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`}></div>
-                  <div className="absolute inset-[2px] bg-white rounded-[22px] -z-5"></div>
-
-                  {/* Decorative Elements */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${cert.color} opacity-10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700`}></div>
-                  
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center text-white shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                <div className="group relative bg-white rounded-xl p-6 border border-primary-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-lg bg-primary-100 text-primary-700 group-hover:bg-primary-900 group-hover:text-white transition-colors">
                       {cert.icon}
                     </div>
-
-                    {/* Content */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <h4 className="text-xl font-bold text-primary-900">{cert.name}</h4>
-                        <span className="px-2 py-0.5 bg-primary-100 text-primary-600 text-xs font-medium rounded-full">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h4 className="text-lg font-semibold text-primary-900">{cert.name}</h4>
+                        <span className="px-2 py-0.5 bg-primary-100 text-primary-700 text-xs font-medium rounded">
                           {cert.year}
                         </span>
                       </div>
-                      <p className="text-primary-600 font-medium">{cert.fullName}</p>
-                      <p className="text-sm text-primary-400">Issued by {cert.issuer}</p>
-                    </div>
-
-                    {/* Verified Badge */}
-                    <div className="mt-6 flex items-center gap-2 text-emerald-600">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-sm font-semibold">Verified Credential</span>
+                      <p className="text-sm text-primary-600 mb-1">{cert.fullName}</p>
+                      <p className="text-xs text-primary-500">{cert.issuer}</p>
                     </div>
                   </div>
                 </div>
@@ -376,7 +377,7 @@ export default function Experience() {
         {/* Journey Stats */}
         <ScrollReveal delay={200}>
           <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-6 px-8 py-4 bg-white rounded-full border border-primary-200 shadow-lg">
+            <div className="inline-flex items-center gap-8 px-8 py-4 bg-white rounded-xl border border-primary-200 shadow-sm">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary-900">{journeySteps.length}</div>
                 <div className="text-xs text-primary-500">Milestones</div>

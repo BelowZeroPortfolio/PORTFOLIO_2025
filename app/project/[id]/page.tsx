@@ -31,6 +31,36 @@ const projectsData: Record<string, any> = {
     year: "2026",
     company: "Rescue Coordination Platform"
   },
+  'ememhs-guidance-system': {
+    title: "EMEMHS Guidance System",
+    description: "Comprehensive web-based guidance management system with SMS notifications for parents. Features complaint management, lost & found tracking, counseling scheduling, and anonymous suggestion box with AI-powered smart matching.",
+    overview: "Developed a full-stack guidance management system for Enriqueta Montilla De Esteban Memorial High School (EMEMHS) as a capstone project. The platform streamlines counseling services, complaint handling, lost & found management, and parent communication through automated SMS notifications via Semaphore API. Built with PHP and modern web technologies to digitize and improve school guidance operations.",
+    challenge: "The school guidance office relied on manual paper-based processes for handling student complaints, tracking lost items, and scheduling counseling sessions. Parents had no visibility into their children's guidance activities, and the staff struggled with coordination and follow-ups. The system needed to be secure, user-friendly, and work reliably in a school environment.",
+    solution: "Architected a comprehensive web platform with role-based access for students and admin staff. Implemented AI-powered smart matching for lost items using similarity algorithms, voice-to-text input for complaints, and automated SMS notifications to keep parents informed. Built real-time dashboards with Chart.js for analytics, integrated EmailJS for password recovery, and created an anonymous suggestion box for student feedback. Used centralized configuration management for security and deployed with Apache/MySQL stack.",
+    impact: [
+      "Digitized entire guidance office workflow",
+      "Automated parent notifications via SMS",
+      "Reduced lost item recovery time with AI matching",
+      "Improved student-counselor communication",
+      "Enabled data-driven decision making with analytics"
+    ],
+    images: ["/ememhs1.png", "/ememhs2.png"],
+    features: [
+      "Student Complaint Management",
+      "Lost & Found with AI Matching",
+      "SMS Notifications (Semaphore API)",
+      "Counseling Session Scheduling",
+      "Anonymous Suggestion Box",
+      "Voice-to-Text Input",
+      "Real-time Analytics Dashboard",
+      "Photo Verification for Claims",
+      "Email Password Recovery",
+      "Activity Logging & Audit Trail"
+    ],
+    techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript", "Chart.js", "EmailJS", "Semaphore API", "Apache"],
+    year: "2025",
+    company: "EMEMHS - Capstone Project"
+  },
   'pest-detection': {
     title: "Pest Detection Web App",
     description: "Built using PHP, Tailwind, MySQL, Ngrok, YOLOv8, and IoT sensors to monitor and log pests with a real-time dashboard. Delivers AI-powered pest detection with live monitoring capabilities.",
@@ -194,6 +224,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   src={image}
                   alt={`${project.title} - Image ${index + 1}`}
                   fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-contain p-2"
                 />
               </div>
@@ -264,6 +295,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 export async function generateStaticParams() {
   return [
     { id: 'mdrrmo-emergency-response' },
+    { id: 'ememhs-guidance-system' },
     { id: 'pest-detection' },
     { id: 'qr-attendance' },
     { id: 'support-system' },
